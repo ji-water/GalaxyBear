@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void GAMEOVER()
     {
-        
-    }
+        double score = this.GetComponent<ScoreManager>().getScore();
+        Debug.Log("score: " + score);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Time.timeScale = 0;
+
     }
 }

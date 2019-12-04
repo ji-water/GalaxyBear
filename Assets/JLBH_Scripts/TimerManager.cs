@@ -7,18 +7,26 @@ public class TimerManager : MonoBehaviour
 {
     public Text timeText;
     private float time;
+    private IEnumerator coroutine;
 
     // Start is called before the first frame update
     void Start()
     {
         time = 120f;
+        coroutine = countdown();
+        StartCoroutine(coroutine);
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator countdown()
     {
-        if (time > 0)
+        while (time > 0) {
+            yield return new WaitForSeconds(Time.deltaTime);
             time -= Time.deltaTime;
-        timeText.text = Mathf.Ceil(time).ToString();
+            timeText.text = Mathf.Ceil(time).ToString();
+        }
+        Debug.Log("time out");
+        this.GetComponent<GameOver>().GAMEOVER();
+        StopCoroutine(coroutine);
     }
+
 }
