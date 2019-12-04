@@ -12,7 +12,7 @@ public class TimerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = 120f;
+        time = 5f;
         coroutine = countdown();
         StartCoroutine(coroutine);
     }
