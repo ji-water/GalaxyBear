@@ -5,41 +5,64 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    //public Transform player;
+    private Transform player;
+    private Transform planet;
     public float movePower = 1f;
     int movementFlag = 0;
 
     int MoveSpeed = 1;
     int MaxDist = 5;
-    int MinDist = 4;
+    float MinDist = 4f;
     bool removeFlag = false;
 
+    Vector3 axis;
+    Vector3 to;
+    Vector3 forwardDir;
+ 
     Vector3 position;
 
 
     void Start()
     {
         position = (12) * Random.onUnitSphere;
-        //player = GameObject.Find("player2").GetComponent<Transform>();
-
+        player = GameObject.Find("player").GetComponent<Transform>();
+        planet = GameObject.Find("Desert_Planet").GetComponent<Transform>();
         StartCoroutine("ChangeMovement");
         //nav = GetComponent<NavMeshAgent>();
     }
 
     //void Update()
     //{
-    //    nav.SetDestination(player.position);
+    //    float distance = Vector3.Distance(transform.position, player.position);
+    //    transform.LookAt(player);
+    //    if (distance >= MinDist)
+    //    {
+    //        transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+    //    }
+        
     //}
 
     void FixedUpdate()
     {
         if (!removeFlag)
-            Move();
+           Move();
     }
 
     void Move()
     {
         Vector3 moveVelocity = Vector3.zero;
+
+        float distance = Vector3.Distance(transform.position, player.position);
+        if (distance >= MinDist)
+        {
+            to = transform.position - planet.position;
+            axis = Vector3.Cross(to, player.position - planet.position);
+            forwardDir = Vector3.Cross(axis, to);
+            transform.LookAt(transform.position + forwardDir, to);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, player.position - transform.position, MoveSpeed);
+            //transform.LookAt(player);
+            //transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+        }
         
         if (movementFlag==1)
         {
@@ -69,40 +92,6 @@ public class Enemy : MonoBehaviour
         transform.position += moveVelocity * movePower * Time.deltaTime;
     }
 
-    /*
-    void Update()
-
-    {
-        //transform.LookAt(position);
-    
-        //transform.LookAt((11) * Random.onUnitSphere);
-        //transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-
-        //transform.position = (11) * Random.onUnitSphere;
-        //transform.LookAt(player);
-
-        //if (Vector3.Distance(transform.position, player.position) >= MinDist)
-
-        //{
-
-        //    transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-
-        //    if (Vector3.Distance(transform.position, player.position) <= MaxDist)
-
-        //    {
-
-        //        //Here call any function you want Like Shoot at here or something
-
-        //    }
-        //    else
-
-        //    {
-
-        //        transform.position = (11) * Random.onUnitSphere;
-        //        Debug.Log("siiiiiiiiibaaaaaaaaaaaa");
-        //    }
-        }
-        */
 
     IEnumerator ChangeMovement()
     {
