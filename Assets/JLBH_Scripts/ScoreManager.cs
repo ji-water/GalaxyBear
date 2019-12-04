@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public Text scoreText;
-    private float score;
+    private double score;
 
     void Start()
     {
@@ -18,5 +18,10 @@ public class ScoreManager : MonoBehaviour
     {
         score += 50; //score 50 per monster (temp)
         scoreText.text = "Score: " + score.ToString();
+    }
+
+    public double getScore()
+    {
+        return score;
     }
 }

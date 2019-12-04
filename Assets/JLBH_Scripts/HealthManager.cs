@@ -6,12 +6,14 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] Heart = new GameObject[3];
-    private int hitCount;
-    private bool hitFlag = false;
+    static private int hitCount;
+    static private bool hitFlag = false;
 
     public PauseMenu SceneManager;
     public Transform player;
-    
+
+    private IEnumerator hit_ani_cor;
+
     void Start()
     {
         hitCount = 0;
@@ -19,24 +21,31 @@ public class HealthManager : MonoBehaviour
         {
             Heart[i].SetActive(true);
         }
+        hit_ani_cor = HitAnime();
     }
 
     public void Hit()
     {
-        if (hitCount < 3 && !hitFlag)
+        Debug.Log("hitflag:" + hitFlag);
+        if (!hitFlag)
         {
-            hitFlag = true;
-            Heart[hitCount].SetActive(false);
             hitCount++;
-            if (hitCount >= 3)
-                SceneManager.moveMain();
-            StartCoroutine("HitAnime");
+            Debug.Log("hit!"+hitCount);
+            Heart[hitCount-1].SetActive(false);
+
+            hitFlag = true;
+            StartCoroutine(hit_ani_cor);
+        }
+        if (hitCount >= 3) //gameover
+        {
+            Debug.Log("heart over");
+            StopCoroutine(hit_ani_cor);
+            this.GetComponent<GameOver>().GAMEOVER();
         }
     }
 
     IEnumerator HitAnime()
     {
-        print("HitAnime");
         Vector3 playerSize = new Vector3(1, 1, 1);
         for (int k = 0; k < 3; k++)
         {
@@ -66,6 +75,7 @@ public class HealthManager : MonoBehaviour
             }
         }
         hitFlag = false;
+        StopCoroutine(hit_ani_cor);
     }
 
 }
