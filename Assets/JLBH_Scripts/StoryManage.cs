@@ -63,7 +63,7 @@ public class StoryManage : MonoBehaviour
 
     public void moveMain()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("TitleScene");
     }
 
 }
