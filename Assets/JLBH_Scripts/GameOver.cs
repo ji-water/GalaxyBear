@@ -8,19 +8,43 @@ public class GameOver : MonoBehaviour
     GameObject gameover_canvas;
     GameObject canvas;
 
+    public Text ending;
     public Text S;
     public Text bestS;
 
-    private void Start()
+    //Audio
+    GameObject AudioManager;
+
+    void Start()
     {
         gameover_canvas = GameObject.Find("GameOverCanvas");
         canvas = GameObject.Find("Canvas");
 
         gameover_canvas.SetActive(false);
+
+        //bgmplay
+        AudioManager = GameObject.Find("AudioManager");
+        AudioManager.GetComponent<AudioManage>().bgmPlay();
+
+        gameObject.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().Main_skill;
+        gameObject.GetComponent<AudioSource>().loop = true;
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
-    public void GAMEOVER()
+    public void GAMEOVER(bool gameover)
     {
+        if (gameover)
+        {
+            ending.text = "GAME OVER";
+        }
+        else
+            ending.text = "GAME END";
+
+        gameObject.GetComponent<AudioSource>().loop = false;
+        AudioManager.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().Main_GMover;
+        AudioManager.GetComponent<AudioSource>().loop = false;
+        AudioManager.GetComponent<AudioSource>().Play();
+
         double score = this.GetComponent<ScoreManager>().getScore();
         Debug.Log("score: " + score);
 
