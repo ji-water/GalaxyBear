@@ -6,6 +6,15 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public Text[] score = new Text[5];
+
+    public void rankingLoad()
+    {
+        for(int i=0; i<5; i++)
+        {
+            score[i].text= "TOP "+(i+1)+" : "+PlayerPrefs.GetInt("score" + i, 0);
+        }
+    }
 
     public void ChangeScene(string sceneName)
     {
