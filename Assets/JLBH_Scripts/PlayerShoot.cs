@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
 
-    public GameObject bullet1;
-    public GameObject bullet2;
+    public GameObject[] bullet1;
+    public GameObject[] bullet2;
     public Transform bulletPos;
     public static int count;
-    private int a = 0;
+    public static int a = 0;
+    public int b = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -35,13 +36,31 @@ public class PlayerShoot : MonoBehaviour
 
     IEnumerator bullett()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1.5f);
         while (true)
         {
             if (a % 2 == 0)
-                Instantiate(bullet1, bulletPos.transform.position, bulletPos.transform.rotation);
+            {
+                //Instantiate(bullet1, bulletPos.transform.position, bulletPos.transform.rotation);
+                bullet1[b%5].SetActive(true);
+                bullet1[b % 5].transform.position = bulletPos.transform.position;
+
+                for (int i = 0; i < 5; i++)
+                    bullet2[i].SetActive(false);
+                b++;
+            }
+
             else
-                Instantiate(bullet2, bulletPos.transform.position, bulletPos.transform.rotation);
+            {
+                //Instantiate(bullet2, bulletPos.transform.position, bulletPos.transform.rotation);
+                bullet2[b % 5].SetActive(true);
+                bullet2[b % 5].transform.position = bulletPos.transform.position;
+                for (int i = 0; i < 5; i++)
+                    bullet1[i].SetActive(false);
+                b++;
+            }
+
+            
             yield return new WaitForSeconds(0.2f);
         }
 

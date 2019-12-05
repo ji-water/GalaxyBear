@@ -13,10 +13,17 @@ public class StoryManage : MonoBehaviour
     bool flag = false;
 
     private IEnumerator coroutine;
-    
+
+    //Audio
+    GameObject AudioManager;
+
     void Start()
     {
-        for(int i=1; i<storyNum; i++)
+        AudioManager = GameObject.Find("AudioManager");
+        gameObject.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().st_effect1;
+        gameObject.GetComponent<AudioSource>().Play();
+
+        for (int i=1; i<storyNum; i++)
         {
             story[i].SetActive(false);
         }
@@ -55,6 +62,20 @@ public class StoryManage : MonoBehaviour
                 if (i != storyCnt)
                     story[i].SetActive(false);
             }
+            switch (storyCnt)
+            {
+                case 1:
+                    gameObject.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().st_effect2;
+                    break;
+                case 2:
+                    gameObject.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().st_effect3;
+                    break;
+                case 3:
+                    gameObject.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().st_effect4;
+                    break;
+
+            }
+            gameObject.GetComponent<AudioSource>().Play();
 
         }
         yield return new WaitForSeconds(3.5f);

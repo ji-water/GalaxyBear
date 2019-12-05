@@ -11,8 +11,12 @@ public class TitleManage : MonoBehaviour
     private IEnumerator blink;
     private IEnumerator moveT;
 
+    GameObject AudioManager;
+
     private void Start()
     {
+        AudioManager = GameObject.Find("AudioManager");
+        AudioManager.GetComponent<AudioManage>().bgmPlay();
         title = GameObject.Find("galaxyBear");
         text = GameObject.Find("Text");
 

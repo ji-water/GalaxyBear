@@ -12,7 +12,7 @@ public class TimerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = 5f;
+        time = 120f;
         coroutine = countdown();
         StartCoroutine(coroutine);
     }
@@ -25,7 +25,7 @@ public class TimerManager : MonoBehaviour
             timeText.text = Mathf.Ceil(time).ToString();
         }
         Debug.Log("time out");
-        this.GetComponent<GameOver>().GAMEOVER();
+        this.GetComponent<GameOver>().GAMEOVER(false);
         StopCoroutine(coroutine);
     }
 

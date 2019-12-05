@@ -12,8 +12,6 @@ public class HealthManager : MonoBehaviour
     public PauseMenu SceneManager;
     public Transform player;
 
-    private IEnumerator hit_ani_cor;
-
     void Start()
     {
         hitCount = 0;
@@ -21,34 +19,35 @@ public class HealthManager : MonoBehaviour
         {
             Heart[i].SetActive(true);
         }
-        hit_ani_cor = HitAnime();
     }
 
     public void Hit()
     {
-        Debug.Log("hitflag:" + hitFlag);
-        if (!hitFlag)
+        if (hitCount<3 && !hitFlag)
         {
-            hitCount++;
+            Handheld.Vibrate();
             Debug.Log("hit!"+hitCount);
-            Heart[hitCount-1].SetActive(false);
 
             hitFlag = true;
-            StartCoroutine(hit_ani_cor);
-        }
-        if (hitCount >= 3) //gameover
-        {
-            Debug.Log("heart over");
-            StopCoroutine(hit_ani_cor);
-            this.GetComponent<GameOver>().GAMEOVER();
+            Heart[hitCount].SetActive(false);
+            hitCount++;
+            if (hitCount >= 3)
+            {
+                this.GetComponent<GameOver>().GAMEOVER(true);
+                return;
+            }
+            StartCoroutine("HitAnime");
         }
     }
 
+    
     IEnumerator HitAnime()
     {
         Vector3 playerSize = new Vector3(1, 1, 1);
+        /*
         for (int k = 0; k < 3; k++)
         {
+            
             // 작아지기
             for (int i = 0; i < 8; i++)
             {
@@ -74,8 +73,10 @@ public class HealthManager : MonoBehaviour
                 player.gameObject.SetActive(true);
             }
         }
+        */
+        yield return new WaitForSeconds(3f);
         hitFlag = false;
-        StopCoroutine(hit_ani_cor);
     }
+    
 
 }

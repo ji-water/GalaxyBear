@@ -233,7 +233,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d8b53d36be30ea4195cb67a9f4dbb5d, type: 2}
+  - {fileID: 2100000, guid: cb27f0e5d2278e847bf3bba62264e6e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1751,7 +1751,7 @@ GameObject:
   - component: {fileID: 6475640830290037838}
   m_Layer: 0
   m_Name: EvilbearB
-  m_TagString: enemy
+  m_TagString: enemy2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

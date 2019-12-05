@@ -252,11 +252,11 @@ ScriptedImporter:
     material: {fileID: 6607062581156933800, guid: b292dd8ca491a2a4aae9ae74bd9bf667,
       type: 3}
     generatedTextures:
-    - {fileID: -7193483901333776968, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
     - {fileID: 4306775618421873048, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
-    - {fileID: 5951722152348811514, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
-    - {fileID: -3103966779310298961, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
     - {fileID: 7328315408838673312, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
+    - {fileID: -3103966779310298961, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
+    - {fileID: 5951722152348811514, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
+    - {fileID: -7193483901333776968, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
   - graphLabel: crate_dirty
     prototypeName: Sci-Fi Crate
     graphDescIndex: 0
@@ -502,8 +502,8 @@ ScriptedImporter:
     material: {fileID: 2284695959805986702, guid: b292dd8ca491a2a4aae9ae74bd9bf667,
       type: 3}
     generatedTextures:
-    - {fileID: 4436573920760115860, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
     - {fileID: 1312930262253748963, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
-    - {fileID: -7665066347098073744, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
-    - {fileID: -6580606019231927769, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
     - {fileID: -2351411656862692020, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
+    - {fileID: -6580606019231927769, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
+    - {fileID: -7665066347098073744, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}
+    - {fileID: 4436573920760115860, guid: b292dd8ca491a2a4aae9ae74bd9bf667, type: 3}

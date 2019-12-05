@@ -6,11 +6,11 @@ public class MoveTrap : MonoBehaviour
 {
 
     public Transform[] trap;
-    int trapSpeed = 30;
+    int trapSpeed = 20;
     float[] initY;
     int trapLeng;
     int[] order;
-    float gab = 0.2f; 
+    float gab = 0.15f; 
 
     // Start is called before the first frame update
     void Start()
@@ -41,73 +41,64 @@ public class MoveTrap : MonoBehaviour
 
     IEnumerator SetTrap()
     {
-        float tempY;
         int tempNum;
         Vector3 tempV;
+
         while (true)
         {
-            /* order 출력 (테스트용)
-            print("[trapOrder]");
-            for (int i = 0; i < trapLeng; i++)
-            {
-                print(order[i]);
-            }*/
             // 랜덤으로 하나씩 내려가기
             for (int i = 0; i < trapLeng; i++)
             {
                 tempNum = order[i];
-                tempY = initY[tempNum];
                 for (int j = 0; j < trapSpeed; j++)
                 {
                     Vector3 moveDir = trap[tempNum].up * gab;
-                    tempV = trap[tempNum].position - moveDir / trapSpeed * j;
-                    //tempV.y = tempY - gab / trapSpeed * j;
+                    tempV = trap[tempNum].position - moveDir / trapSpeed;
                     trap[tempNum].position = tempV;
                     yield return new WaitForSeconds(0.01f);
                 }
                 yield return new WaitForSeconds(0.1f);
             }
+
             // 랜덤으로 하나씩 올라왔다 내려가기
             for (int i = 0; i < trapLeng; i++)
             {
                 tempNum = order[i];
-                tempY = initY[tempNum] - gab;
                 for (int j = 0; j < trapSpeed; j++)
                 {
                     Vector3 moveDir = trap[tempNum].up * gab;
-                    tempV = trap[tempNum].position + moveDir / trapSpeed * j;
-                    //tempV.y = tempY + gab / trapSpeed * j;
+                    tempV = trap[tempNum].position + moveDir / trapSpeed;
                     trap[tempNum].position = tempV;
-                    yield return new WaitForSeconds(0.01f);
+                    yield return new WaitForSeconds(0.005f + 0.0005f * j);
                 }
-                tempY = initY[order[i]];
+                yield return new WaitForSeconds(0.05f);
                 for (int j = 0; j < trapSpeed; j++)
                 {
                     Vector3 moveDir = trap[tempNum].up * gab;
-                    
-                    tempV = trap[tempNum].position - moveDir / trapSpeed * j;
-                    //tempV.y = tempY - gab / trapSpeed * j;
+                    tempV = trap[tempNum].position - moveDir / trapSpeed;
                     trap[tempNum].position = tempV;
-                    yield return new WaitForSeconds(0.01f);
+                    yield return new WaitForSeconds(0.015f - 0.0005f * j);
                 }
             }
-            Shuffle();
+
             // 동시에 모두 올라오기
             for (int j = 0; j < trapSpeed; j++)
             {
                 for (int i = 0; i < trapLeng; i++)
                 {
                     tempNum = order[i];
-                    tempY = initY[tempNum] - gab;
                     Vector3 moveDir = trap[tempNum].up * gab;
-                    tempV = trap[tempNum].position + moveDir / trapSpeed * j;
-                    //tempV.y = tempY + gab / trapSpeed * j;
+                    tempV = trap[tempNum].position + moveDir / trapSpeed;
                     trap[tempNum].position = tempV;
                 }
                 yield return new WaitForSeconds(0.01f);
             }
+
             Shuffle();
             yield return new WaitForSeconds(1f);
+
         }
+
     }
+
 }

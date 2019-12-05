@@ -10,8 +10,6 @@ public class Enemy : MonoBehaviour
     public float movePower = 1f;
     int movementFlag = 0;
 
-    int MoveSpeed = 1;
-    int MaxDist = 5;
     float MinDist = 4f;
     bool removeFlag = false;
 
@@ -20,13 +18,14 @@ public class Enemy : MonoBehaviour
     Vector3 forwardDir;
  
     Vector3 position;
-
+    private HealthManager hm;
 
     void Start()
     {
-        position = (12) * Random.onUnitSphere;
+        //position = (12) * Random.onUnitSphere;
         player = GameObject.Find("player").GetComponent<Transform>();
         planet = GameObject.Find("Desert_Planet").GetComponent<Transform>();
+        hm = GameObject.Find("GameManager").GetComponent<HealthManager>();
         StartCoroutine("ChangeMovement");
         //nav = GetComponent<NavMeshAgent>();
     }
@@ -53,6 +52,14 @@ public class Enemy : MonoBehaviour
         Vector3 moveVelocity = Vector3.zero;
 
         float distance = Vector3.Distance(transform.position, player.position);
+
+        if(distance <= 1f)
+        {
+            hm.Hit();
+            Destroy(this.gameObject);
+            return;
+        }
+
         if (distance >= MinDist)
         {
             to = transform.position - planet.position;
