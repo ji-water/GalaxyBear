@@ -53,7 +53,7 @@ public class SpawnManage : MonoBehaviour
             {
                 int ran = Random.Range(0, 5);
                 int enemyType = Random.Range(0, 2);
-                Debug.Log("Spawn from " + (ran + 1));
+                //Debug.Log("Spawn from " + (ran + 1));
                 Transform obj;
                 if (enemyType == 0)
                     obj = GameObject.Instantiate(EnemyPrefab, Spawners[ran].transform.position, Quaternion.identity);
