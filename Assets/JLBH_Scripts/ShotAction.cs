@@ -6,7 +6,8 @@ public class ShotAction : MonoBehaviour {
     public GameObject explosion;
     float distance;
     Animator ani;
-    public GameObject SpawnManager;
+    //public GameObject SpawnManager;
+    //GameObject GameManager;
 
     // Use this for initialization
     void Start()
@@ -35,8 +36,9 @@ public class ShotAction : MonoBehaviour {
 
         if (other.CompareTag("enemy") && PlayerShoot.a % 2 == 0)
         {
-            SpawnManager.GetComponent<SpawnManage>().CurrentEnemy--;
+            //SpawnManager.GetComponent<SpawnManage>().CurrentEnemy--;
             //other.gameObject.GetComponent<MoveEnemy>().SMG.scoreUP();
+            //GameManager.GetComponent<ScoreManager>().scoreUP();
             Instantiate(explosion, transform.position, Quaternion.identity);
             other.gameObject.GetComponent<Enemy>().setDestroy();
             this.gameObject.SetActive(false);
@@ -44,8 +46,9 @@ public class ShotAction : MonoBehaviour {
         }
         if (other.CompareTag("enemy2") && PlayerShoot.a %2 == 1 )
         {
-            SpawnManager.GetComponent<SpawnManage>().CurrentEnemy--;
+            //SpawnManager.GetComponent<SpawnManage>().CurrentEnemy--;
             //other.gameObject.GetComponent<MoveEnemy>().SMG.scoreUP();
+            //GameManager.GetComponent<ScoreManager>().scoreUP();
             Instantiate(explosion, transform.position, Quaternion.identity);
             other.gameObject.GetComponent<Enemy>().setDestroy();
             this.gameObject.SetActive(false);

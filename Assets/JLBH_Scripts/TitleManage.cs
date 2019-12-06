@@ -7,20 +7,23 @@ public class TitleManage : MonoBehaviour
 {
     GameObject title;
     GameObject text;
+    GameObject Canvas;
 
     private IEnumerator blink;
     private IEnumerator moveT;
 
     GameObject AudioManager;
 
-    private void Start()
+    void Start()
     {
         AudioManager = GameObject.Find("AudioManager");
         AudioManager.GetComponent<AudioManage>().bgmPlay();
         title = GameObject.Find("galaxyBear");
         text = GameObject.Find("Text");
+        Canvas = GameObject.Find("Canvas");
 
-        title.transform.position = new Vector3(0, 0, 800);
+        Vector3 pos = Canvas.transform.position;
+        title.transform.position = pos;
 
         moveT = moveTitle();
         blink = textBlink();
@@ -60,12 +63,12 @@ public class TitleManage : MonoBehaviour
     IEnumerator moveTitle()
     {
         while (true) { 
-            if (title.transform.position.y > 700)
+            if (title.transform.position.y > 100)
             {
                 SceneManager.LoadScene("MainScene");
                 StopCoroutine(moveT);
             }
-            title.transform.Translate(new Vector3(0, 15f, 0));
+            title.transform.Translate(new Vector3(0, 2f, 0));
             yield return new WaitForSeconds(0.03f);
         }
 

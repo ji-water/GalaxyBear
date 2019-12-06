@@ -10,9 +10,6 @@ public class AudioManage : MonoBehaviour
 
     AudioSource AudioPlay;
 
-    static private float bgmVol =1f; //0~1f 사이
-    static private float effetVol =1f;
-
     //Story
     public AudioClip st_effect1;
     public AudioClip st_effect2;
@@ -34,7 +31,8 @@ public class AudioManage : MonoBehaviour
 
 
     void Start()
-    {
+    { 
+
         DontDestroyOnLoad(this);
         if (FindObjectsOfType(GetType()).Length > 1)
         {
@@ -61,6 +59,8 @@ public class AudioManage : MonoBehaviour
         Main_GMover= Resources.Load<AudioClip>("Sounds/main_gameover");
         Main_fireball= Resources.Load<AudioClip>("Sounds/main_fireball");
         Main_fireball_fall = Resources.Load<AudioClip>("Sounds/main_fireball_fall");
+
+        AudioPlay.volume = PlayerPrefs.GetInt("BGMvol", 5) * 0.2f; //BGMvol 0~5 정수
     }
 
     public void bgmPlay()
@@ -88,14 +88,7 @@ public class AudioManage : MonoBehaviour
         }
         if(!flag)
             AudioPlay.Play();
-        AudioPlay.volume = bgmVol;
-    }
-
-    public void setVol(float b,float e)
-    {
-        bgmVol = b;
-        effetVol = e;
-        AudioPlay.volume = bgmVol;
+        AudioPlay.volume = PlayerPrefs.GetInt("BGMvol",5)*0.2f;
     }
 
 }

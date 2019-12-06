@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
     //버튼 사운드
     public void playEffect()
     {
-        SoundEffect.GetComponent<AudioSource>().Play();
+        SoundEffect.GetComponent<AudioSource>().volume = PlayerPrefs.GetInt("EFFvol", 5) *0.2f;
         SoundEffect.GetComponent<AudioSource>().Play();
     }
 

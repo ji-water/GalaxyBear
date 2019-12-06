@@ -188,7 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 100002, guid: 872363974360b1540b92d8d9e0453afa, type: 3}
-  SpawnManager: {fileID: 0}
 --- !u!54 &1179977070
 Rigidbody:
   m_ObjectHideFlags: 0

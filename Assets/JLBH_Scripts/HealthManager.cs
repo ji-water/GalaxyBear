@@ -14,6 +14,7 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
+        hitFlag = false;
         hitCount = 0;
         for(int i=0; i<3; i++)
         {

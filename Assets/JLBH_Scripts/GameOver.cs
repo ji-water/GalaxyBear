@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
     GameObject gameover_canvas;
     GameObject canvas;
+    GameObject Gun;
+    GameObject PauseManager; //gameover되면 pause 입력 막아야함
 
     public Text ending;
     public Text S;
@@ -19,6 +22,8 @@ public class GameOver : MonoBehaviour
     {
         gameover_canvas = GameObject.Find("GameOverCanvas");
         canvas = GameObject.Find("Canvas");
+        Gun = GameObject.Find("Gun");
+        PauseManager = GameObject.Find("SceneManager");
 
         gameover_canvas.SetActive(false);
 
@@ -28,7 +33,8 @@ public class GameOver : MonoBehaviour
 
         gameObject.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().Main_skill;
         gameObject.GetComponent<AudioSource>().loop = true;
-       
+        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetInt("EFFvol", 1);
+
         gameObject.GetComponent<AudioSource>().Play();
     }
 
@@ -44,6 +50,8 @@ public class GameOver : MonoBehaviour
 
         gameover_canvas.SetActive(true);
         canvas.SetActive(false);
+        Gun.SetActive(false);
+        PauseManager.SetActive(false);
 
         gameObject.GetComponent<AudioSource>().loop = false;
         AudioManager.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().Main_GMover;
@@ -83,8 +91,31 @@ public class GameOver : MonoBehaviour
             }
         }
 
-        S.text = score.ToString();
-        bestS.text = best_score.ToString();
+        S.text = "SCORE: "+score.ToString();
+        bestS.text = "BEST SCORE: "+best_score.ToString();
+
+        //버튼 입력받기
+        StartCoroutine("WaitKeyInput");
         
+    }
+
+    IEnumerator WaitKeyInput()
+    {
+        bool pressed = false;
+        while (!pressed)
+        {
+            //X button to go main
+            if (Input.GetKey(KeyCode.JoystickButton2) || Input.GetKey(KeyCode.X)){
+                pressed = true;
+                SceneManager.LoadScene("MainScene");
+            }
+            //Y button
+            if (Input.GetKey(KeyCode.JoystickButton3) || Input.GetKey(KeyCode.Y))
+            {
+                pressed = true;
+                SceneManager.LoadScene("GameScene");
+            }
+            yield return null;
+        }
     }
 }

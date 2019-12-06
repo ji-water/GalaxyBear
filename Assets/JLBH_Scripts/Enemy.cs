@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
     Vector3 position;
     private HealthManager hm;
 
+    GameObject SpawnManager;
+    GameObject GameManager;
+
     void Start()
     {
         //position = (12) * Random.onUnitSphere;
@@ -28,6 +31,9 @@ public class Enemy : MonoBehaviour
         hm = GameObject.Find("GameManager").GetComponent<HealthManager>();
         StartCoroutine("ChangeMovement");
         //nav = GetComponent<NavMeshAgent>();
+
+        SpawnManager = GameObject.Find("SpawnManager");
+        GameManager = GameObject.Find("GameManager");
     }
 
     //void Update()
@@ -117,6 +123,10 @@ public class Enemy : MonoBehaviour
             removeFlag = true;
             Animator ani = GetComponent<Animator>();
             ani.SetInteger("animation", 6);
+
+            SpawnManager.GetComponent<SpawnManage>().CurrentEnemy--;
+            GameManager.GetComponent<ScoreManager>().scoreUP();
+
             Destroy(gameObject, 2f);
         }
     }

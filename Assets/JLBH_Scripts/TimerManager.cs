@@ -9,11 +9,16 @@ public class TimerManager : MonoBehaviour
     private float time;
     private IEnumerator coroutine;
 
+    void Awake()
+    {
+        Time.timeScale = 1;
+    }
     // Start is called before the first frame update
     void Start()
     {
         time = 120f;
         coroutine = countdown();
+        Time.timeScale = 1;
         StartCoroutine(coroutine);
     }
 
