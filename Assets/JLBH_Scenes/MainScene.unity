@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.016244449, g: 0.015211519, b: 0.014367604, a: 1}
+  m_IndirectSpecularColor: {r: 0.016244521, g: 0.015211739, b: 0.014367467, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -196,7 +196,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!1 &124728828
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +396,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!1 &187937829
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +774,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &274078303
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2364,7 +2364,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!1001 &1349334036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4029,7 +4029,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!1 &2108043936
 GameObject:
   m_ObjectHideFlags: 0
@@ -4252,6 +4252,7 @@ MonoBehaviour:
   BGM_Volum: {fileID: 1714999243}
   EFFECT_Volum: {fileID: 1589442597}
   volumStatus:
+  - {fileID: 21300000, guid: e1d86a199b03d3c46b7f4a0198435e90, type: 3}
   - {fileID: 21300000, guid: d79012d8d67220c40b48f6a334b82930, type: 3}
   - {fileID: 21300000, guid: 5ab563375df2db84a975fcc0cb428c34, type: 3}
   - {fileID: 21300000, guid: 4ea9bfd9402ac8842be4cc1d4f70753c, type: 3}

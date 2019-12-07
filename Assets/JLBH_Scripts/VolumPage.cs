@@ -32,7 +32,7 @@ public class VolumPage : MonoBehaviour
 #if UNITY_EDITOR
 
         // left 버튼 (bgm 볼륨 다운)
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && bgmVol > 1)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && bgmVol > 0)
         {
             bgmVol--;
             BGM_Volum.sprite = volumStatus[bgmVol];
@@ -50,7 +50,7 @@ public class VolumPage : MonoBehaviour
             AudioManager.GetComponent<AudioSource>().volume = bgmVol*0.2f;
         }
         // down 버튼 (effect 볼륨 다운)
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && effectVol > 1)
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && effectVol > 0)
         {
             effectVol--;
             EFFECT_Volum.sprite = volumStatus[effectVol];
@@ -68,10 +68,10 @@ public class VolumPage : MonoBehaviour
 
 #else
         // X 버튼 (bgm 볼륨 다운)
-        if (Input.GetKeyDown(KeyCode.JoystickButton2) && bgmVol > 1)
+        if (Input.GetKeyDown(KeyCode.JoystickButton2) && bgmVol > 0)
         {
             bgmVol--;
-            BGM_Volum.sprite = volumStatus[bgmVol - 1];
+            BGM_Volum.sprite = volumStatus[bgmVol];
             PlayerPrefs.SetInt("BGMvol", bgmVol);
             AudioManager.GetComponent<AudioSource>().volume = bgmVol*0.2f;
         }
@@ -79,22 +79,22 @@ public class VolumPage : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.JoystickButton1) && bgmVol < 5)
         {
             bgmVol++;
-            BGM_Volum.sprite = volumStatus[bgmVol - 1];
+            BGM_Volum.sprite = volumStatus[bgmVol];
             PlayerPrefs.SetInt("BGMvol", bgmVol);
             AudioManager.GetComponent<AudioSource>().volume = bgmVol*0.2f;
         }
         // A 버튼 (effect 볼륨 다운)
-        else if (Input.GetKeyDown(KeyCode.JoystickButton0) && effectVol > 1)
+        else if (Input.GetKeyDown(KeyCode.JoystickButton0) && effectVol > 0)
         {
             effectVol--;
-            EFFECT_Volum.sprite = volumStatus[effectVol - 1];
+            EFFECT_Volum.sprite = volumStatus[effectVol];
             PlayerPrefs.SetInt("EFFvol", effectVol);
         }
         // Y 버튼 (effect 볼륨 업)
         else if (Input.GetKeyDown(KeyCode.JoystickButton3) && effectVol < 5)
         {
             effectVol++;
-            EFFECT_Volum.sprite = volumStatus[effectVol - 1];
+            EFFECT_Volum.sprite = volumStatus[effectVol];
             PlayerPrefs.SetInt("EFFvol", effectVol);
         }
 #endif
