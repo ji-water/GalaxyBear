@@ -39,6 +39,11 @@ public class PlayerMove : MonoBehaviour
         {
             HM.Hit();
         }
+
+        if (other.CompareTag("Planet"))
+        {
+            grounded = true;
+        }
     }
 
     // Update is called once per frame
@@ -75,6 +80,10 @@ public class PlayerMove : MonoBehaviour
         {
             grounded = false;
         }
+
+
+
     }
 
+   
 }

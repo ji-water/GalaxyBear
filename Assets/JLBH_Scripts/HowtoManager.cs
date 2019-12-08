@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HowtoManager : MonoBehaviour
 {
     public GameObject howto;
+    public GameObject canvas;
     private int count = 0;
     public GameObject[] how;
 
@@ -13,7 +14,10 @@ public class HowtoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        count = 0;
+        canvas.SetActive(false);
         SoundEffect = GameObject.Find("SoundEffect");
+        Debug.Log(count);
     }
 
     // Update is called once per frame
@@ -23,47 +27,56 @@ public class HowtoManager : MonoBehaviour
         {
             SoundEffect.GetComponent<AudioSource>().Play();
             count++;
-            if (count % 5 == 1)
+            
+            if (count % 8 == 1)
             {
                 how[0].SetActive(false);
                 how[1].SetActive(true);
-                how[2].SetActive(false);
-                how[3].SetActive(false);
-                how[4].SetActive(false);
             }
-            else if (count % 5 == 2)
+            else if (count % 8 == 2)
             {
-                how[0].SetActive(false);
+
                 how[1].SetActive(false);
                 how[2].SetActive(true);
-                how[3].SetActive(false);
-                how[4].SetActive(false);
+
             }
-            else if (count % 5 == 3)
+            else if (count % 8 == 3)
             {
-                how[0].SetActive(false);
-                how[1].SetActive(false);
+
                 how[2].SetActive(false);
                 how[3].SetActive(true);
-                how[4].SetActive(false);
+
             }
-            else if (count % 5 == 4)
+            else if (count % 8 == 4)
             {
-                how[0].SetActive(false);
-                how[1].SetActive(false);
-                how[2].SetActive(false);
                 how[3].SetActive(false);
                 how[4].SetActive(true);
             }
-            else if (count % 5 == 0)
+            else if (count % 8 == 5)
             {
-                how[0].SetActive(false);
-                how[1].SetActive(false);
-                how[2].SetActive(false);
-                how[3].SetActive(false);
                 how[4].SetActive(false);
-                howto.SetActive(false);
+                how[5].SetActive(true);
+
             }
+            else if (count % 8 == 6)
+            {
+                how[5].SetActive(false);
+                how[6].SetActive(true);
+            }
+            else if (count % 8 == 7)
+            {
+                how[6].SetActive(false);
+                how[7].SetActive(true);
+            }
+            else if (count % 8 == 0)
+            {
+                canvas.SetActive(true);
+                how[7].SetActive(false);
+                how[0].SetActive(true);
+                howto.SetActive(false);
+                
+            }
+          
         }
     }
 
