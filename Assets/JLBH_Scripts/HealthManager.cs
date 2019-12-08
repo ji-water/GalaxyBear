@@ -11,6 +11,7 @@ public class HealthManager : MonoBehaviour
 
     public PauseMenu SceneManager;
     public Transform player;
+    public GameObject isShieldImg;
 
     void Start()
     {
@@ -20,6 +21,28 @@ public class HealthManager : MonoBehaviour
         {
             Heart[i].SetActive(true);
         }
+    }
+
+    public void Heal()
+    {
+        if (hitCount > 0)
+        {
+            hitCount--;
+            Heart[hitCount].SetActive(true);
+        }
+    }
+
+    public void Shield()
+    {
+        hitFlag = true;
+        isShieldImg.SetActive(true);
+        Invoke("HitFlagOff", 10f);
+    }
+
+    public void HitFlagOff()
+    {
+        isShieldImg.SetActive(false);
+        hitFlag = false;
     }
 
     public void Hit()

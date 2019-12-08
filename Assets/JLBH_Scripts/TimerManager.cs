@@ -34,4 +34,9 @@ public class TimerManager : MonoBehaviour
         StopCoroutine(coroutine);
     }
 
+    public void TimeUp()
+    {
+        time += 30;
+    }
+
 }

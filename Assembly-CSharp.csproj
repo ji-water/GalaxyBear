@@ -175,6 +175,7 @@
     <Compile Include="Assets\JLBH_Scripts\GravityBody.cs" />
     <Compile Include="Assets\JLBH_Scripts\HealthManager.cs" />
     <Compile Include="Assets\JLBH_Scripts\HowtoManager.cs" />
+    <Compile Include="Assets\JLBH_Scripts\ItemFunction.cs" />
     <Compile Include="Assets\JLBH_Scripts\ItemManage.cs" />
     <Compile Include="Assets\JLBH_Scripts\MainMenu.cs" />
     <Compile Include="Assets\JLBH_Scripts\MoveRock.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Assets\JLBH_Scripts\StoryManage.cs" />
     <Compile Include="Assets\JLBH_Scripts\TimerManager.cs" />
     <Compile Include="Assets\JLBH_Scripts\TitleManage.cs" />
+    <Compile Include="Assets\JLBH_Scripts\UILookAt.cs" />
     <Compile Include="Assets\JLBH_Scripts\VolumPage.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
@@ -412,31 +414,31 @@
     <None Include="Assets\Sci-Fi Crate\Demo\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
     <None Include="Assets\Sci-Fi Crate\Demo\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -610,10 +612,10 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Substance.Game">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Assets/Allegorithmic/Plugins/Substance.Game.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Assets/Allegorithmic/Plugins/Substance.Game.dll</HintPath>
     </Reference>
     <Reference Include="Google.ProtocolBuffers">
-      <HintPath>C:/Users/bjiso/my_repo/GalaxyBear/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
+      <HintPath>C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
