@@ -5,16 +5,12 @@ using UnityEngine;
 public class CheckItemCollide : MonoBehaviour
 {
     private bool isActive;
+    GameObject ItemManager;
     // Start is called before the first frame update
     void Start()
     {
         isActive = true;
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        ItemManager = GameObject.Find("ItemManager");
         
     }
 
@@ -22,6 +18,7 @@ public class CheckItemCollide : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            ItemManager.GetComponent<AudioSource>().Play();
             this.gameObject.SetActive(false);
             isActive = false;
         }

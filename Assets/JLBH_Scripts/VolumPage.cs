@@ -56,6 +56,7 @@ public class VolumPage : MonoBehaviour
             EFFECT_Volum.sprite = volumStatus[effectVol];
             print("effectVol : " + effectVol);
             PlayerPrefs.SetInt("EFFvol", effectVol);
+            AudioManager.GetComponent<AudioManage>().SetEffectVol(effectVol);
         }
         // up 버튼 (effect 볼륨 업)
         else if (Input.GetKeyDown(KeyCode.UpArrow) && effectVol < 5)
@@ -64,6 +65,7 @@ public class VolumPage : MonoBehaviour
             EFFECT_Volum.sprite = volumStatus[effectVol];
             print("effectVol : " + effectVol);
             PlayerPrefs.SetInt("EFFvol", effectVol);
+            AudioManager.GetComponent<AudioManage>().SetEffectVol(effectVol);
         }
 
 #else
@@ -89,6 +91,7 @@ public class VolumPage : MonoBehaviour
             effectVol--;
             EFFECT_Volum.sprite = volumStatus[effectVol];
             PlayerPrefs.SetInt("EFFvol", effectVol);
+            AudioManager.GetComponent<AudioManage>().SetEffectVol(effectVol);
         }
         // Y 버튼 (effect 볼륨 업)
         else if (Input.GetKeyDown(KeyCode.JoystickButton3) && effectVol < 5)
@@ -96,6 +99,7 @@ public class VolumPage : MonoBehaviour
             effectVol++;
             EFFECT_Volum.sprite = volumStatus[effectVol];
             PlayerPrefs.SetInt("EFFvol", effectVol);
+            AudioManager.GetComponent<AudioManage>().SetEffectVol(effectVol);
         }
 #endif
     }

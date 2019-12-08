@@ -10,10 +10,17 @@ public class ItemFunction : MonoBehaviour
     public HealthManager HM;
     public TimerManager TM;
 
+    GameObject ItemBox;
+    void Start()
+    {
+        ItemBox = GameObject.Find("ItemBox");    
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            ItemBox.GetComponent<AudioSource>().Play();
             if (itemType == ITEM.health)
             {
                 HM.Heal();

@@ -26,8 +26,6 @@ public class AudioManage : MonoBehaviour
     public AudioClip Main_skill_ch;
     public AudioClip Main_item;
     public AudioClip Main_GMover;
-    public AudioClip Main_fireball;
-    public AudioClip Main_fireball_fall;
 
 
     void Start()
@@ -57,8 +55,6 @@ public class AudioManage : MonoBehaviour
         Main_skill_ch = Resources.Load<AudioClip>("Sounds/main_skillchange");
         Main_item= Resources.Load<AudioClip>("Sounds/main_itemeffect");
         Main_GMover= Resources.Load<AudioClip>("Sounds/main_gameover");
-        Main_fireball= Resources.Load<AudioClip>("Sounds/main_fireball");
-        Main_fireball_fall = Resources.Load<AudioClip>("Sounds/main_fireball_fall");
 
         AudioPlay.volume = PlayerPrefs.GetInt("BGMvol", 5) * 0.2f; //BGMvol 0~5 정수
     }
@@ -89,6 +85,38 @@ public class AudioManage : MonoBehaviour
         if(!flag)
             AudioPlay.Play();
         AudioPlay.volume = PlayerPrefs.GetInt("BGMvol",5)*0.2f;
+    }
+
+    public void SetEffectVol(int vol)
+    {
+        switch (SceneManager.GetActiveScene().name){
+            case "GameScene":
+                //enemy sound
+               GameObject SpawnManager = GameObject.Find("SpawnManager");
+               SpawnManager.GetComponent<SpawnManage>().EnemyPrefab.GetComponent<AudioSource>().volume = vol * 0.2f;
+               SpawnManager.GetComponent<SpawnManage>().EnemyPrefab2.GetComponent<AudioSource>().volume = vol * 0.2f;
+
+                //gun sound
+                GameObject GameManager = GameObject.Find("GameManager");
+                GameManager.GetComponent<AudioSource>().volume = vol * 0.2f;
+
+                //rock sound
+               GameObject[] rockTrap = new GameObject[7];
+               for (int i = 0; i < 7; i++)
+               {
+                    rockTrap[i] = GameObject.Find("rockTrap" + i);
+                    rockTrap[i].GetComponent<rockManager>().explosion.GetComponent<AudioSource>().volume = vol * 0.2f;
+                    rockTrap[i].GetComponent<rockManager>().rockObj.GetComponent<AudioSource>().volume = vol * 0.2f;
+                }
+
+                //item sound
+                GameObject ItemManager = GameObject.Find("ItemManager");
+                ItemManager.GetComponent<AudioSource>().volume = vol * 0.2f;
+                GameObject ItemBox = GameObject.Find("ItemBox");
+                ItemBox.GetComponent<AudioSource>().volume = vol * 0.2f;
+                break;
+        }
+
     }
 
 }

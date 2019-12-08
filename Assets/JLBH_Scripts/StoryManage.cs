@@ -21,6 +21,7 @@ public class StoryManage : MonoBehaviour
     {
         AudioManager = GameObject.Find("AudioManager");
         gameObject.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().st_effect1;
+        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetInt("EFFvol", 5) * 0.2f;
         gameObject.GetComponent<AudioSource>().Play();
 
         for (int i=1; i<storyNum; i++)
@@ -75,6 +76,7 @@ public class StoryManage : MonoBehaviour
                     break;
 
             }
+            gameObject.GetComponent<AudioSource>().volume= PlayerPrefs.GetInt("EFFvol", 5) * 0.2f;
             gameObject.GetComponent<AudioSource>().Play();
 
         }

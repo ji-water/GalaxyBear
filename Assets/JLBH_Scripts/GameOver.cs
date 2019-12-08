@@ -33,9 +33,10 @@ public class GameOver : MonoBehaviour
 
         gameObject.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().Main_skill;
         gameObject.GetComponent<AudioSource>().loop = true;
-        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetInt("EFFvol", 1);
-
+        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetInt("EFFvol", 5)*0.2f;
         gameObject.GetComponent<AudioSource>().Play();
+
+        AudioManager.GetComponent<AudioManage>().SetEffectVol(PlayerPrefs.GetInt("EFFvol", 5));
     }
 
     public void GAMEOVER(bool gameover)
