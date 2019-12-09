@@ -24,6 +24,8 @@ public class GameOver : MonoBehaviour
     public GameObject ItemManager;
     public GameObject ItemBox;
 
+    public GameObject health;
+
     void Start()
     {
 
@@ -82,6 +84,7 @@ public class GameOver : MonoBehaviour
         canvas.SetActive(false);
         Gun.SetActive(false);
         PauseManager.SetActive(false);
+        health.SetActive(false);
 
         gameObject.GetComponent<AudioSource>().loop = false;
         AudioManager.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().Main_GMover;

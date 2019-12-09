@@ -818,7 +818,7 @@ ScriptsOnlyBuild:
     className: Enemy
   - hash:
       serializedVersion: 2
-      Hash: 08741ed7993d4639c752deca36d96648
+      Hash: 1b6f6d3ba53febad25bb68f9831fcdd2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameOver
@@ -1674,4 +1674,4 @@ ScriptsOnlyBuild:
   - Assets/JLBH_Scenes/TitleScene.unity
   - Assets/JLBH_Scenes/MainScene.unity
   - Assets/JLBH_Scenes/GameScene.unity
-  playerPath: D:/GalaxyBear-master/GalaxyBear_04.apk
+  playerPath: C:/Users/ewha_/Documents/GitHub/GalaxyBear/GalaxyBear_06.apk

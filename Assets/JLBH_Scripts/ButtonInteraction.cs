@@ -23,6 +23,7 @@ public class ButtonInteraction : MonoBehaviour
                 {
                     case 1: //ranking
                         RankingCanvas.SetActive(true);
+                        SceneManager.GetComponent<MainMenu>().rankingLoad();
                         buttons.SetActive(false);
                         break;
                     case 2: //start

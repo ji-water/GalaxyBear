@@ -64,11 +64,11 @@
   <ItemGroup>
     <Compile Include="Assets\Allegorithmic\Plugins\Substance.Platform\NativeFunctions.cs" />
     <None Include="Assets\Allegorithmic\Plugins\Substance.Platform\Substance.Platform.asmdef" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/ewha_/Documents/GitHub/GalaxyBear/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/ewha_/Documents/GitHub/GalaxyBear/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/ewha_/Documents/GitHub/GalaxyBear/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
