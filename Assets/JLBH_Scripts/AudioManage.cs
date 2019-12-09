@@ -87,14 +87,18 @@ public class AudioManage : MonoBehaviour
         AudioPlay.volume = PlayerPrefs.GetInt("BGMvol",5)*0.2f;
     }
 
+/*
     public void SetEffectVol(int vol)
     {
         switch (SceneManager.GetActiveScene().name){
             case "GameScene":
                 //enemy sound
-               GameObject SpawnManager = GameObject.Find("SpawnManager");
-               SpawnManager.GetComponent<SpawnManage>().EnemyPrefab.GetComponent<AudioSource>().volume = vol * 0.2f;
-               SpawnManager.GetComponent<SpawnManage>().EnemyPrefab2.GetComponent<AudioSource>().volume = vol * 0.2f;
+               GameObject enemy = GameObject.Find("Desert_Planet/enemy");
+                SpawnManage2 spawn_m = enemy.GetComponent<SpawnManage2>();
+                for(int i=0; i<spawn_m.enemy.Length; i++)
+                {
+                    spawn_m.enemy[i].GetComponent<AudioSource>().volume = vol * 0.2f;
+                }
 
                 //gun sound
                 GameObject GameManager = GameObject.Find("GameManager");
@@ -118,5 +122,6 @@ public class AudioManage : MonoBehaviour
         }
 
     }
+    */
 
 }

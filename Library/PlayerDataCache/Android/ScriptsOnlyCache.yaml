@@ -3,7 +3,10 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AnimationScript
     - AudioManage
+    - ButtonInteraction
+    - ButtonInteraction_inGame
     - CFX_AutoDestructShuriken
+    - CheckItemCollide
     - Enemy
     - EnemyAnimation
     - GameOver
@@ -15,6 +18,8 @@ ScriptsOnlyBuild:
     - GvrReticlePointer
     - HealthManager
     - HowtoManager
+    - ItemFunction
+    - ItemManage
     - MainMenu
     - MoveRock
     - MoveTrap
@@ -22,13 +27,16 @@ ScriptsOnlyBuild:
     - PlayerCollider
     - PlayerMove
     - PlayerShoot
+    - ResonanceAudioListener
     - Rotatator
     - ScoreManager
     - ShotAction
     - SpawnManage
+    - SpawnManage2
     - StoryManage
     - TimerManager
     - TitleManage
+    - UILookAt
     - VolumPage
     - VolumetricLines.VolumetricLineBehavior
     - rockManager
@@ -42,8 +50,8 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -80,6 +88,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 82
       Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 90
@@ -93,69 +103,81 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10038}
+      Script: {instanceID: 10062}
     - Class: 114
-      Script: {instanceID: 10116}
+      Script: {instanceID: 10140}
     - Class: 114
-      Script: {instanceID: 10194}
+      Script: {instanceID: 10218}
     - Class: 114
-      Script: {instanceID: 10206}
+      Script: {instanceID: 10230}
     - Class: 114
-      Script: {instanceID: 10264}
+      Script: {instanceID: 10290}
     - Class: 114
-      Script: {instanceID: 10312}
+      Script: {instanceID: 10338}
     - Class: 114
-      Script: {instanceID: 10520}
+      Script: {instanceID: 10364}
     - Class: 114
-      Script: {instanceID: 10528}
+      Script: {instanceID: 10468}
     - Class: 114
-      Script: {instanceID: 10650}
+      Script: {instanceID: 10548}
     - Class: 114
-      Script: {instanceID: 10694}
+      Script: {instanceID: 10558}
     - Class: 114
-      Script: {instanceID: 10758}
+      Script: {instanceID: 10682}
     - Class: 114
-      Script: {instanceID: 10764}
+      Script: {instanceID: 10730}
     - Class: 114
-      Script: {instanceID: 10796}
+      Script: {instanceID: 10794}
     - Class: 114
-      Script: {instanceID: 10816}
+      Script: {instanceID: 10800}
     - Class: 114
-      Script: {instanceID: 10882}
+      Script: {instanceID: 10832}
     - Class: 114
-      Script: {instanceID: 11134}
+      Script: {instanceID: 10852}
     - Class: 114
-      Script: {instanceID: 11152}
+      Script: {instanceID: 10920}
     - Class: 114
-      Script: {instanceID: 11276}
+      Script: {instanceID: 11014}
     - Class: 114
-      Script: {instanceID: 11480}
+      Script: {instanceID: 11166}
     - Class: 114
-      Script: {instanceID: 11606}
+      Script: {instanceID: 11188}
     - Class: 114
-      Script: {instanceID: 11628}
+      Script: {instanceID: 11208}
     - Class: 114
-      Script: {instanceID: 11682}
+      Script: {instanceID: 11544}
+    - Class: 114
+      Script: {instanceID: 11670}
     - Class: 114
       Script: {instanceID: 11692}
     - Class: 114
-      Script: {instanceID: 11698}
+      Script: {instanceID: 11750}
     - Class: 114
-      Script: {instanceID: 11798}
+      Script: {instanceID: 11760}
     - Class: 114
-      Script: {instanceID: 11810}
+      Script: {instanceID: 11766}
     - Class: 114
       Script: {instanceID: 11866}
     - Class: 114
-      Script: {instanceID: 12052}
+      Script: {instanceID: 11878}
     - Class: 114
-      Script: {instanceID: 12162}
+      Script: {instanceID: 11936}
     - Class: 114
-      Script: {instanceID: 12230}
+      Script: {instanceID: 12064}
     - Class: 114
-      Script: {instanceID: 12244}
+      Script: {instanceID: 12136}
     - Class: 114
-      Script: {instanceID: 6094828}
+      Script: {instanceID: 12174}
+    - Class: 114
+      Script: {instanceID: 12254}
+    - Class: 114
+      Script: {instanceID: 12322}
+    - Class: 114
+      Script: {instanceID: 12336}
+    - Class: 114
+      Script: {instanceID: 12370}
+    - Class: 114
+      Script: {instanceID: 12382}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -177,6 +199,12 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 241
+      Script: {instanceID: 0}
+    - Class: 243
+      Script: {instanceID: 0}
+    - Class: 245
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
@@ -212,31 +240,33 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10038}
+      Script: {instanceID: 10062}
     - Class: 114
-      Script: {instanceID: 10264}
+      Script: {instanceID: 10290}
     - Class: 114
-      Script: {instanceID: 10312}
+      Script: {instanceID: 10338}
     - Class: 114
-      Script: {instanceID: 10520}
+      Script: {instanceID: 10548}
     - Class: 114
-      Script: {instanceID: 10796}
+      Script: {instanceID: 10832}
     - Class: 114
-      Script: {instanceID: 11276}
+      Script: {instanceID: 11138}
     - Class: 114
-      Script: {instanceID: 11682}
+      Script: {instanceID: 11750}
     - Class: 114
-      Script: {instanceID: 11810}
+      Script: {instanceID: 11878}
     - Class: 114
-      Script: {instanceID: 11828}
+      Script: {instanceID: 11896}
     - Class: 114
-      Script: {instanceID: 11866}
+      Script: {instanceID: 11936}
     - Class: 114
-      Script: {instanceID: 12244}
+      Script: {instanceID: 12176}
     - Class: 114
-      Script: {instanceID: 5691414}
+      Script: {instanceID: 12336}
     - Class: 114
-      Script: {instanceID: 6094828}
+      Script: {instanceID: 12370}
+    - Class: 114
+      Script: {instanceID: 12482}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -279,23 +309,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10038}
+      Script: {instanceID: 10062}
     - Class: 114
-      Script: {instanceID: 10264}
+      Script: {instanceID: 10290}
     - Class: 114
-      Script: {instanceID: 10312}
+      Script: {instanceID: 10338}
     - Class: 114
-      Script: {instanceID: 10520}
+      Script: {instanceID: 10548}
     - Class: 114
-      Script: {instanceID: 10796}
+      Script: {instanceID: 10832}
     - Class: 114
-      Script: {instanceID: 10974}
+      Script: {instanceID: 11018}
     - Class: 114
-      Script: {instanceID: 11866}
+      Script: {instanceID: 11936}
     - Class: 114
-      Script: {instanceID: 11930}
+      Script: {instanceID: 12004}
     - Class: 114
-      Script: {instanceID: 12244}
+      Script: {instanceID: 12336}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -309,6 +339,12 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 241
+      Script: {instanceID: 0}
+    - Class: 243
+      Script: {instanceID: 0}
+    - Class: 245
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
@@ -327,26 +363,28 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10038}
+      Script: {instanceID: 10062}
     - Class: 114
-      Script: {instanceID: 10264}
+      Script: {instanceID: 10290}
     - Class: 114
-      Script: {instanceID: 10312}
+      Script: {instanceID: 10338}
     - Class: 114
-      Script: {instanceID: 10520}
+      Script: {instanceID: 10548}
     - Class: 114
-      Script: {instanceID: 10796}
+      Script: {instanceID: 10832}
     - Class: 114
-      Script: {instanceID: 11866}
+      Script: {instanceID: 11936}
     - Class: 114
-      Script: {instanceID: 12316}
+      Script: {instanceID: 12412}
     - Class: 114
-      Script: {instanceID: 12318}
+      Script: {instanceID: 12414}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -360,6 +398,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -550,6 +590,12 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
+      Hash: a26287687bdad13d8b60b237850ab4be
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UILookAt
+  - hash:
+      serializedVersion: 2
       Hash: 234235b9fb07320d11497e08a726cc56
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -590,6 +636,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets.ImageEffects
     className: NoiseAndScratches
+  - hash:
+      serializedVersion: 2
+      Hash: b06f20e7fb93b6abe446f31d646bf0bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResonanceAudioListener
   - hash:
       serializedVersion: 2
       Hash: 5d46189bfca968b9b26fd60c37765c3f
@@ -640,7 +692,7 @@ ScriptsOnlyBuild:
     className: BloomAndFlares
   - hash:
       serializedVersion: 2
-      Hash: 256694596165299c101cc3d22237e639
+      Hash: 307d1a4b287cb60c5fb82cdce554a2f3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenu
@@ -694,6 +746,12 @@ ScriptsOnlyBuild:
     className: CFX_AutoStopLoopedEffect
   - hash:
       serializedVersion: 2
+      Hash: d7737a35547e661e540469ced76b87f3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DemoPlayerController
+  - hash:
+      serializedVersion: 2
       Hash: 755aa9308df9cb5ec0a491ba4f5f09a5
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets.ImageEffects
@@ -706,10 +764,16 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 86b7ce0ad427a57bf457e9d707ce6421
+      Hash: d8f4bf2bc1a75f1882afcbbe788b3e30
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShotAction
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResonanceAudioMaterialMapperUpdater
   - hash:
       serializedVersion: 2
       Hash: 11182ae33aeebaa701c6f03cb7f19976
@@ -748,13 +812,13 @@ ScriptsOnlyBuild:
     className: Swapper
   - hash:
       serializedVersion: 2
-      Hash: 5a706aa1e7a522644e2e398adf2e88b5
+      Hash: d0007c89be4c914617e08ac78d56f310
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
   - hash:
       serializedVersion: 2
-      Hash: 0464e14ba7f0cbef4c797c4c71b392db
+      Hash: 08741ed7993d4639c752deca36d96648
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameOver
@@ -820,10 +884,16 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 8c7f988ad8a3fe5035cbc8501cc6c1e2
+      Hash: c724d657fba06a46dd83aed654aabe9c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HealthManager
+  - hash:
+      serializedVersion: 2
+      Hash: b92e38c06f34871515c9b102fcbc7ae1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResonanceAudioDemoManager
   - hash:
       serializedVersion: 2
       Hash: d8df5893e804fd1586146ba281b98ef3
@@ -838,7 +908,13 @@ ScriptsOnlyBuild:
     className: CFX_Demo_RandomDir
   - hash:
       serializedVersion: 2
-      Hash: 3b1713faaa17a06025a4030cd2b71d5e
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CheckItemCollide
+  - hash:
+      serializedVersion: 2
+      Hash: d90ef122b90ccd38a55bfafc0d5e98fa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioManage
@@ -886,6 +962,24 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResonanceAudioDemoCubeController
+  - hash:
+      serializedVersion: 2
+      Hash: 2c346d220042f1109d74745422fdb03e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ButtonInteraction
+  - hash:
+      serializedVersion: 2
+      Hash: 740eb0cb5028439fd2ad539272053268
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpawnManage2
+  - hash:
+      serializedVersion: 2
       Hash: 86cfcd24b9fc59be9240f6811ea3b2b2
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets.ImageEffects
@@ -916,6 +1010,12 @@ ScriptsOnlyBuild:
     className: CFX_AutoDestructShuriken
   - hash:
       serializedVersion: 2
+      Hash: 9d4bbcdd22ed7dbad0000a8abb41ce59
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResonanceAudioMaterialMapper
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -932,6 +1032,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WFX_Demo_RandomDir
+  - hash:
+      serializedVersion: 2
+      Hash: 42cf7cca4cb0f9910c041c6cc6650638
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResonanceAudioMaterialMap
   - hash:
       serializedVersion: 2
       Hash: ed87896b003033d2333c2a897989aa8a
@@ -992,6 +1098,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets.ImageEffects
     className: PostEffectsHelper
+  - hash:
+      serializedVersion: 2
+      Hash: 5204b93ac72cf71ae306b52ba748f294
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResonanceAudioSource
   - hash:
       serializedVersion: 2
       Hash: 1a9e52e2ff472238deaebe06595ba637
@@ -1112,6 +1224,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 444398bc4fb783b0b448ac3c979214e1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResonanceAudioRoom
   - hash:
       serializedVersion: 2
       Hash: 8cfb65feb9d4f736b24134830e717c23
@@ -1282,6 +1400,12 @@ ScriptsOnlyBuild:
     className: WFX_Demo_Wall
   - hash:
       serializedVersion: 2
+      Hash: d9a31b6f08a852e03d74d7a47ec193b1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ButtonInteraction_inGame
+  - hash:
+      serializedVersion: 2
       Hash: f1b1d314ca3b7b03e29e12762db58162
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1306,10 +1430,28 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
+      Hash: 8e7b54fccfbde1b78ac0756ee4faccbf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResonanceAudioReverbProbe
+  - hash:
+      serializedVersion: 2
       Hash: 1a15a086b1c0337a64ec2bee2ef92299
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GvrPointerGraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ItemManage
+  - hash:
+      serializedVersion: 2
+      Hash: c0f6a00c1ba8236c705976a7a8e7e2fb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VolumPage
   - hash:
       serializedVersion: 2
       Hash: df64ad7cdad89053ed97218d03e92c1f
@@ -1420,6 +1562,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
+      Hash: 1a182ee94a277aa40f73e79760ddfa82
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ItemFunction
+  - hash:
+      serializedVersion: 2
       Hash: 10d40c4c007ed0fe1a397ef11ee530fa
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets.ImageEffects
@@ -1498,6 +1646,12 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: 3df8a432b59116e21a11d868ebbf6692
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HowtoManager
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1514,22 +1668,10 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 771849af1c64e4172472bdfe4778db7b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HowtoManager
-  - hash:
-      serializedVersion: 2
-      Hash: c0f6a00c1ba8236c705976a7a8e7e2fb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: VolumPage
   platform: 13
   scenePathNames:
   - Assets/JLBH_Scenes/Story.unity
   - Assets/JLBH_Scenes/TitleScene.unity
   - Assets/JLBH_Scenes/MainScene.unity
   - Assets/JLBH_Scenes/GameScene.unity
-  playerPath: D:/GalaxyBear-master/GalaxyBear_check.apk
+  playerPath: D:/GalaxyBear-master/GalaxyBear_04.apk

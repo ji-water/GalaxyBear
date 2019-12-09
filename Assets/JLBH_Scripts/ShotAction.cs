@@ -39,8 +39,9 @@ public class ShotAction : MonoBehaviour {
             //SpawnManager.GetComponent<SpawnManage>().CurrentEnemy--;
             //other.gameObject.GetComponent<MoveEnemy>().SMG.scoreUP();
             //GameManager.GetComponent<ScoreManager>().scoreUP();
-            Instantiate(explosion, transform.position, Quaternion.identity);
+           // Instantiate(explosion, transform.position, Quaternion.identity);
             other.gameObject.GetComponent<Enemy>().setDestroy();
+
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }
@@ -49,7 +50,7 @@ public class ShotAction : MonoBehaviour {
             //SpawnManager.GetComponent<SpawnManage>().CurrentEnemy--;
             //other.gameObject.GetComponent<MoveEnemy>().SMG.scoreUP();
             //GameManager.GetComponent<ScoreManager>().scoreUP();
-            Instantiate(explosion, transform.position, Quaternion.identity);
+           // Instantiate(explosion, transform.position, Quaternion.identity);
             other.gameObject.GetComponent<Enemy>().setDestroy();
             this.gameObject.SetActive(false);
             // Destroy(this.gameObject);

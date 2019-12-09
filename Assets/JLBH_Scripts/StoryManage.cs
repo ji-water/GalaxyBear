@@ -35,7 +35,7 @@ public class StoryManage : MonoBehaviour
     private void Update()
     {
         // click or X Button
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.JoystickButton2))
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             if (!flag)
             {

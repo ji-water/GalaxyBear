@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    GameObject gameover_canvas;
-    GameObject canvas;
-    GameObject Gun;
-    GameObject PauseManager; //gameover되면 pause 입력 막아야함
+    public GameObject gameover_canvas;
+    public GameObject canvas;
+    public GameObject Gun;
+    public GameObject PauseManager; //gameover되면 pause 입력 막아야함
 
     public Text ending;
     public Text S;
@@ -18,14 +18,19 @@ public class GameOver : MonoBehaviour
     //Audio
     GameObject AudioManager;
 
-    private void Start()
+    public GameObject enemy;
+    SpawnManage2 spawn_m;
+    public GameObject[] rockTrap = new GameObject[7];
+    public GameObject ItemManager;
+    public GameObject ItemBox;
+
+    void Start()
     {
-        gameover_canvas = GameObject.Find("GameOverCanvas");
-        canvas = GameObject.Find("Canvas");
-        Gun = GameObject.Find("Gun");
-        PauseManager = GameObject.Find("SceneManager");
 
         gameover_canvas.SetActive(false);
+
+        //effect vol
+        float vol = PlayerPrefs.GetInt("EFFvol", 5) * 0.2f;
 
         //bgmplay
         AudioManager = GameObject.Find("AudioManager");
@@ -33,11 +38,35 @@ public class GameOver : MonoBehaviour
 
         gameObject.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().Main_skill;
         gameObject.GetComponent<AudioSource>().loop = true;
-        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetInt("EFFvol", 5)*0.2f;
+        gameObject.GetComponent<AudioSource>().volume = vol;
         gameObject.GetComponent<AudioSource>().Play();
 
-        AudioManager.GetComponent<AudioManage>().SetEffectVol(PlayerPrefs.GetInt("EFFvol", 5));
-    }
+        //enemy sound
+        spawn_m = enemy.GetComponent<SpawnManage2>();
+        //for (int i = 0; i < spawn_m.enemy.Length; i++)
+        //{
+        //    spawn_m.enemy[i].GetComponent<AudioSource>().volume = vol;
+        //}
+
+        //gun sound
+        this.GetComponent<AudioSource>().volume = vol;
+
+        //rock sound
+        for (int i = 0; i < 7; i++)
+        {
+            rockTrap[i].GetComponent<rockManager>().explosion.GetComponent<AudioSource>().volume = vol;
+            rockTrap[i].GetComponent<rockManager>().rockObj.GetComponent<AudioSource>().volume = vol;
+        }
+
+        //item sound
+        ItemManager.GetComponent<AudioSource>().volume = vol;
+        ItemBox.GetComponent<AudioSource>().volume = vol;
+
+    } 
+
+
+
+        
 
     public void GAMEOVER(bool gameover)
     {

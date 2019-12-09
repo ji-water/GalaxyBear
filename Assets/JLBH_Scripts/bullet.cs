@@ -33,6 +33,7 @@ public class bullet : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             Destroy(this.gameObject);
 
         }

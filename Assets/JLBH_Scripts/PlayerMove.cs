@@ -40,10 +40,10 @@ public class PlayerMove : MonoBehaviour
             HM.Hit();
         }
 
-        if (other.CompareTag("Planet"))
+       /* if (other.CompareTag("Planet"))
         {
             grounded = true;
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -72,7 +72,7 @@ public class PlayerMove : MonoBehaviour
         // Grounded check
         Ray ray = new Ray(transform.position, -transform.up);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 0.7f, groundedMask))
+        if (Physics.Raycast(ray, out hit, 0.9f, groundedMask))
         {
             grounded = true;
         }

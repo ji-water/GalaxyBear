@@ -63,12 +63,12 @@ public class TitleManage : MonoBehaviour
     IEnumerator moveTitle()
     {
         while (true) { 
-            if (title.transform.position.y > 100)
+            if (title.transform.position.y > 1400)
             {
                 SceneManager.LoadScene("MainScene");
                 StopCoroutine(moveT);
             }
-            title.transform.Translate(new Vector3(0, 2f, 0));
+            title.transform.Translate(new Vector3(0, 20f, 0));
             yield return new WaitForSeconds(0.03f);
         }
 

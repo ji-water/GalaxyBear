@@ -5,9 +5,10 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private Transform player;
-    private Transform planet;
+    public Transform player;
+    public Transform planet;
     public float movePower = 1f;
+    public GameObject exp;
     int movementFlag = 0;
 
     float MinDist = 4f;
@@ -18,24 +19,31 @@ public class Enemy : MonoBehaviour
     Vector3 forwardDir;
  
     Vector3 position;
-    private HealthManager hm;
+    public HealthManager hm;
 
-    GameObject SpawnManager;
-    GameObject GameManager;
+    public GameObject SpawnManager;
+    public GameObject GameManager;
 
     void Start()
     {
         //position = (12) * Random.onUnitSphere;
-        player = GameObject.Find("player").GetComponent<Transform>();
-        planet = GameObject.Find("Desert_Planet").GetComponent<Transform>();
-        hm = GameObject.Find("GameManager").GetComponent<HealthManager>();
+      //  player = GameObject.Find("player").GetComponent<Transform>();
+       // planet = GameObject.Find("Desert_Planet").GetComponent<Transform>();
+       // hm = GameObject.Find("GameManager").GetComponent<HealthManager>();
         StartCoroutine("ChangeMovement");
         //nav = GetComponent<NavMeshAgent>();
 
-        SpawnManager = GameObject.Find("SpawnManager");
-        GameManager = GameObject.Find("GameManager");
+        //SpawnManager = GameObject.Find("SpawnManager");
+        //GameManager = GameObject.Find("GameManager");
     }
-
+    private void OnEnable()
+    {
+        Animator ani = GetComponent<Animator>();
+        ani.SetInteger("animation", 15);
+        removeFlag = false;
+        exp.SetActive(false);
+        StartCoroutine("ChangeMovement");
+    }
     //void Update()
     //{
     //    float distance = Vector3.Distance(transform.position, player.position);
@@ -44,7 +52,7 @@ public class Enemy : MonoBehaviour
     //    {
     //        transform.position += transform.forward * MoveSpeed * Time.deltaTime;
     //    }
-        
+
     //}
 
     void FixedUpdate()
@@ -121,14 +129,18 @@ public class Enemy : MonoBehaviour
         if (!removeFlag)
         {
             removeFlag = true;
+            exp.SetActive(true);
             Animator ani = GetComponent<Animator>();
             ani.SetInteger("animation", 6);
 
-            SpawnManager.GetComponent<SpawnManage>().CurrentEnemy--;
+            //SpawnManager.GetComponent<SpawnManage>().CurrentEnemy--;
             GameManager.GetComponent<ScoreManager>().scoreUP();
 
-            Destroy(gameObject, 2f);
+            //Destroy(gameObject, 2f);
+            Invoke("offenmemy", 2f);
         }
     }
-
+    public void offenmemy() {
+        gameObject.SetActive(false);
+    }
 }
