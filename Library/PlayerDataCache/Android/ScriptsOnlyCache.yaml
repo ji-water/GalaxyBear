@@ -26,6 +26,7 @@ ScriptsOnlyBuild:
     - PauseMenu
     - PlayerCollider
     - PlayerMove
+    - PlayerPlanet
     - PlayerShoot
     - ResonanceAudioListener
     - Rotatator
@@ -178,6 +179,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12370}
     - Class: 114
       Script: {instanceID: 12382}
+    - Class: 114
+      Script: {instanceID: 99320}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -494,7 +497,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 16791a55d2e4f0911ca9113559b8bbe0
+      Hash: f64fccdaed3829be05d12b7c8f004fb0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GravityAttractor
@@ -692,7 +695,7 @@ ScriptsOnlyBuild:
     className: BloomAndFlares
   - hash:
       serializedVersion: 2
-      Hash: 307d1a4b287cb60c5fb82cdce554a2f3
+      Hash: 0933659841afe8b9626e7907cb70fb92
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenu
@@ -1400,7 +1403,7 @@ ScriptsOnlyBuild:
     className: WFX_Demo_Wall
   - hash:
       serializedVersion: 2
-      Hash: d9a31b6f08a852e03d74d7a47ec193b1
+      Hash: 4df875d0adbd4e12986baecda8fec97f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ButtonInteraction_inGame
@@ -1668,10 +1671,16 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 1d98110e121d6462ed55e8b95ecf50cf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerPlanet
   platform: 13
   scenePathNames:
   - Assets/JLBH_Scenes/Story.unity
   - Assets/JLBH_Scenes/TitleScene.unity
   - Assets/JLBH_Scenes/MainScene.unity
   - Assets/JLBH_Scenes/GameScene.unity
-  playerPath: C:/Users/ewha_/Documents/GitHub/GalaxyBear/GalaxyBear_06.apk
+  playerPath: C:/Users/USER/Desktop/Coding/Unity/GalaxyBear/GalaxyBear_07.apk

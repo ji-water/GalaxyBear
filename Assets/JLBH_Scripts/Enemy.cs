@@ -70,7 +70,8 @@ public class Enemy : MonoBehaviour
         if(distance <= 1f)
         {
             hm.Hit();
-            Destroy(this.gameObject);
+            offenmemy();
+            //Destroy(this.gameObject);
             return;
         }
 
@@ -140,6 +141,7 @@ public class Enemy : MonoBehaviour
             Invoke("offenmemy", 2f);
         }
     }
+
     public void offenmemy() {
         gameObject.SetActive(false);
     }

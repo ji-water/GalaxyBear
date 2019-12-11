@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    
     [SerializeField]
-    private int playerSpeed = 20;
-    [SerializeField]
-    private float jumpForce = 50;
+    private float jumpForce = 20;
     [SerializeField]
     bool grounded = true;
 
@@ -22,11 +19,11 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeed = 20;
-        jumpForce = 50;
+        jumpForce = 20;
         rigid = GetComponent<Rigidbody>();
         groundedMask = 1 << LayerMask.NameToLayer("Ground");
-        rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+        //rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+        rigid.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -72,7 +69,7 @@ public class PlayerMove : MonoBehaviour
         // Grounded check
         Ray ray = new Ray(transform.position, -transform.up);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 0.9f, groundedMask))
+        if (Physics.Raycast(ray, out hit, 0.8f, groundedMask))
         {
             grounded = true;
         }

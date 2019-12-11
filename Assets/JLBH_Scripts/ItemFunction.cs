@@ -18,7 +18,7 @@ public class ItemFunction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("MainCamera"))
         {
             ItemBox.GetComponent<AudioSource>().Play();
             if (itemType == ITEM.health)

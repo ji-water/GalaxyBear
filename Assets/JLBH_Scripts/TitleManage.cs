@@ -5,12 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TitleManage : MonoBehaviour
 {
-    GameObject title;
-    GameObject text;
-    GameObject Canvas;
-
-    private IEnumerator blink;
-    private IEnumerator moveT;
+    public Transform title;
+    public GameObject text;
+    public Transform Canvas;
 
     GameObject AudioManager;
 
@@ -18,16 +15,11 @@ public class TitleManage : MonoBehaviour
     {
         AudioManager = GameObject.Find("AudioManager");
         AudioManager.GetComponent<AudioManage>().bgmPlay();
-        title = GameObject.Find("galaxyBear");
-        text = GameObject.Find("Text");
-        Canvas = GameObject.Find("Canvas");
+        
+        //title.position = Canvas.position;
 
-        Vector3 pos = Canvas.transform.position;
-        title.transform.position = pos;
-
-        moveT = moveTitle();
-        blink = textBlink();
-        StartCoroutine(blink);
+        //StartCoroutine("moveTitle");
+        StartCoroutine("textBlink");
     }
 
     void Update()
@@ -35,10 +27,9 @@ public class TitleManage : MonoBehaviour
         //아무키나 누르면 씬 넘어감
         if (Input.anyKeyDown)
         {
-            StopCoroutine(blink);
+            StopCoroutine("textBlink");
             text.SetActive(false);
-            StartCoroutine(moveT);
-           
+            StartCoroutine("moveTitle");
         }
 
     }
@@ -62,14 +53,15 @@ public class TitleManage : MonoBehaviour
 
     IEnumerator moveTitle()
     {
+        Vector3 tempV = new Vector3(0, 0.01f, 0);
         while (true) { 
-            if (title.transform.position.y > 1)
+            if (title.position.y > 0.13f)
             {
                 SceneManager.LoadScene("MainScene");
-                StopCoroutine(moveT);
             }
-            title.transform.Translate(new Vector3(0, 0.02f, 0));
+            title.Translate(tempV);
             yield return new WaitForSeconds(0.03f);
+            print(title.position.y);
         }
 
     }

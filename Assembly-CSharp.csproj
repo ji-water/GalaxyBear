@@ -171,7 +171,6 @@
     <Compile Include="Assets\JLBH_Scripts\ButtonInteraction_inGame.cs" />
     <Compile Include="Assets\JLBH_Scripts\CheckItemCollide.cs" />
     <Compile Include="Assets\JLBH_Scripts\Enemy.cs" />
-    <Compile Include="Assets\JLBH_Scripts\EnemyAnimation.cs" />
     <Compile Include="Assets\JLBH_Scripts\GameOver.cs" />
     <Compile Include="Assets\JLBH_Scripts\GravityAttractor.cs" />
     <Compile Include="Assets\JLBH_Scripts\GravityBody.cs" />
@@ -184,7 +183,9 @@
     <Compile Include="Assets\JLBH_Scripts\MoveTrap.cs" />
     <Compile Include="Assets\JLBH_Scripts\PauseMenu.cs" />
     <Compile Include="Assets\JLBH_Scripts\PlayerCollider.cs" />
+    <Compile Include="Assets\JLBH_Scripts\playerGravityBody.cs" />
     <Compile Include="Assets\JLBH_Scripts\PlayerMove.cs" />
+    <Compile Include="Assets\JLBH_Scripts\PlayerPlanet.cs" />
     <Compile Include="Assets\JLBH_Scripts\PlayerShoot.cs" />
     <Compile Include="Assets\JLBH_Scripts\rockManager.cs" />
     <Compile Include="Assets\JLBH_Scripts\ScoreManager.cs" />

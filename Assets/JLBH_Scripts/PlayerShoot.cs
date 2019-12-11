@@ -22,7 +22,7 @@ public class PlayerShoot : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.C))
         {
             a++;
         }
