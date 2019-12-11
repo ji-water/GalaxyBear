@@ -4,51 +4,66 @@ using UnityEngine;
 
 public class ButtonInteraction_inGame : MonoBehaviour
 {
-    static int buttonGaze = 0; //1:Main,2:Resume,3:Restart
-    public GameObject SceneManager;
+    public enum BTYPE {Main = 0, Resume = 1, Restart = 2, Yes = 3, No = 4, None = 5};
+    BTYPE buttonGaze = BTYPE.None, isYesType = BTYPE.None;
 
-    public void buttonInput()
+    public PauseMenu PM;
+    public GameObject isReallyMove;
+
+    public void buttonInput(int inputType)
     {
-        switch (gameObject.transform.name)
+        BTYPE tempType = (BTYPE) inputType;
+        buttonGaze = tempType;
+        if (tempType == BTYPE.Main || tempType == BTYPE.Restart)
         {
-            case "Main":
-                buttonGaze = 1;
-                break;
-            case "Resume":
-                buttonGaze = 2;
-                break;
-            case "Restart":
-                buttonGaze = 3;
-                break;
+            isYesType = tempType;
         }
     }
 
     //pointer out
     public void buttonOut()
     {
-        buttonGaze = 0;
+        buttonGaze = BTYPE.None;
+    }
+
+    private void OnEnable()
+    {
+        isReallyMove.SetActive(false);
     }
 
     void Update()
     {
-        if(buttonGaze != 0)
+        if(buttonGaze != BTYPE.None)
         {
             if (Input.GetButtonDown("Fire1") || Input.GetKey(KeyCode.JoystickButton0))
             {
-                PauseMenu p = SceneManager.GetComponent<PauseMenu>();
                 switch (buttonGaze)
                 {
-                    case 1: //main
-                        p.moveMain();
+                    case BTYPE.Main:
+                        isYesType = BTYPE.Main;
+                        isReallyMove.SetActive(true);
                         break;
-                    case 2: //resume
-                        p.resume();
+                    case BTYPE.Resume:
+                        PM.resume();
                         break;
-                    //restart
-                    case 3:
-                        p.restart();
+                    case BTYPE.Restart:
+                        isYesType = BTYPE.Restart;
+                        isReallyMove.SetActive(true);
                         break;
-
+                    case BTYPE.Yes:
+                        if (isYesType == BTYPE.Main)
+                        {
+                            PM.moveMain();
+                        }
+                        else if (isYesType == BTYPE.Restart)
+                        {
+                            PM.restart();
+                        }
+                        break;
+                    case BTYPE.No:
+                        isYesType = BTYPE.None;
+                        isReallyMove.SetActive(false);
+                        break;
                 }
             }
         }

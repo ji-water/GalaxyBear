@@ -34,13 +34,13 @@ public class StoryManage : MonoBehaviour
 
     private void Update()
     {
-        // click or X Button
+        // click or A Button
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             if (!flag)
             {
                 flag = true;
-                clickText.text = "> SKIP (Click +1)";
+                clickText.text = "> SKIP :        +1";
             }
             else
                 moveMain();

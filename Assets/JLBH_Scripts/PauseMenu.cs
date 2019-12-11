@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu, menuButton;
+    public Transform pauseCanvas, pausePos;
+    public GameObject pauseMenu;
     bool isPause = false;
 
     private void Start()
@@ -29,9 +30,9 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 isPause = true;
-               
+                pauseCanvas.position = pausePos.position;
+                pauseCanvas.rotation = pausePos.rotation;
                 pauseMenu.SetActive(true);
-                menuButton.SetActive(true);
                 Time.timeScale = 0;
             }
         }
@@ -47,6 +48,7 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 isPause = true;
+                pauseCanvas.position = pausePos.position;
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0;
             }
