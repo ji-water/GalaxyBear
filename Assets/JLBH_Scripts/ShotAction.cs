@@ -13,28 +13,26 @@ public class ShotAction : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        StartCoroutine("destroyBullet");
+        StartCoroutine(destroyBullet());
     }
 
     // Update is called once per frame
     void Update () {
-		//transform.position += bulletPos.forward * Time.deltaTime * 5f;
-        //transform.rotation = bulletPos.rotation;
-        transform.SetPositionAndRotation(
-            transform.position + bulletPos.forward * Time.deltaTime * 5f,
-            bulletPos.rotation
-        );
+		transform.position += bulletPos.forward * Time.deltaTime * 5f;
+        transform.rotation = bulletPos.rotation;
 	
 	}
+
 
     IEnumerator destroyBullet()
     {
         yield return new WaitForSeconds(0.5f);
         //Destroy(this.gameObject);
-        gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
-    
+
+
     void OnTriggerEnter(Collider other)
     {  
 
@@ -46,7 +44,7 @@ public class ShotAction : MonoBehaviour {
            // Instantiate(explosion, transform.position, Quaternion.identity);
             other.gameObject.GetComponent<Enemy>().setDestroy();
 
-            gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }
         if (other.CompareTag("enemy2") && PlayerShoot.a %2 == 1 )
@@ -56,20 +54,17 @@ public class ShotAction : MonoBehaviour {
             //GameManager.GetComponent<ScoreManager>().scoreUP();
            // Instantiate(explosion, transform.position, Quaternion.identity);
             other.gameObject.GetComponent<Enemy>().setDestroy();
-            gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
             // Destroy(this.gameObject);
         }
-        /*
+
         if (other.CompareTag("Planet")) {
             this.gameObject.SetActive(false);
         }
-        */
     }
 
-    /*
     void OnBecameInvisible()
     {
        // Destroy(this.gameObject);
     }
-    */
 }

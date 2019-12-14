@@ -8,7 +8,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     bool grounded = true;
 
-    public GameObject isGroundCheck;
     public HealthManager HM;
     public Transform mainCam, arrow;
     Rigidbody rigid;
@@ -19,7 +18,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        jumpForce = 2;
+        jumpForce = 80;
         rigid = GetComponent<Rigidbody>();
         groundedMask = 1 << LayerMask.NameToLayer("Ground");
         //rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
@@ -53,8 +52,7 @@ public class PlayerMove : MonoBehaviour
         {
             if (grounded)
             {
-                //rigid.AddForce(transform.position * jumpForce, ForceMode.Impulse);
-                rigid.AddRelativeForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+                rigid.AddForce(transform.up * jumpForce);
             }
         }
 #else
@@ -62,7 +60,7 @@ public class PlayerMove : MonoBehaviour
         {
             if (grounded)
             {
-                rigid.AddRelativeForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                rigid.AddForce(transform.up * jumpForce);
             }
         }
 #endif
@@ -70,17 +68,17 @@ public class PlayerMove : MonoBehaviour
         // Grounded check
         Ray ray = new Ray(transform.position, -transform.up);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 0.7f, groundedMask))
+        if (Physics.Raycast(ray, out hit, 0.5f, groundedMask))
         {
             grounded = true;
-            isGroundCheck.SetActive(true);
         }
         else
         {
             grounded = false;
-            isGroundCheck.SetActive(false);
         }
-        
+
+
+
     }
 
    

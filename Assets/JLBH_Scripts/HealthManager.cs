@@ -50,6 +50,7 @@ public class HealthManager : MonoBehaviour
         if (hitCount<3 && !hitFlag)
         {
             Handheld.Vibrate();
+            Debug.Log("hit!"+hitCount);
 
             hitFlag = true;
             Heart[hitCount].SetActive(false);

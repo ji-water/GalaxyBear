@@ -11,7 +11,7 @@ public class MoveRock : MonoBehaviour
     Vector3 endPoint;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         rockTrans = GetComponent<Transform>();
     }
