@@ -15,6 +15,7 @@ TagManager:
   - GameManger
   - item
   - gun
+  - playerHitZone
   layers:
   - Default
   - TransparentFX
@@ -25,9 +26,9 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Obstacle
   - 
   - 
   - 

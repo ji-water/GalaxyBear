@@ -31,7 +31,8 @@ ScriptedImporter:
     shaderName: Standard
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-      shaderKeywords: _EMISSION _MAINTEX _METALLICGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+      shaderKeywords: _EMISSION _GLOSSYREFLECTIONS_OFF _MAINTEX _METALLICGLOSSMAP
+        _NORMALMAP _OCCLUSIONMAP
       lightmapFlags: 1
       texEnvs:
       - name: _BumpMap
@@ -89,7 +90,7 @@ ScriptedImporter:
       - name: _Glossiness
         float: 0.5
       - name: _GlossyReflections
-        float: 1
+        float: 0
       - name: _Metallic
         float: 0
       - name: _Mode
@@ -281,7 +282,8 @@ ScriptedImporter:
     shaderName: Standard
     materialProperties:
       shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-      shaderKeywords: _EMISSION _MAINTEX _METALLICGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+      shaderKeywords: _EMISSION _GLOSSYREFLECTIONS_OFF _MAINTEX _METALLICGLOSSMAP
+        _NORMALMAP _OCCLUSIONMAP
       lightmapFlags: 1
       texEnvs:
       - name: _BumpMap
@@ -339,7 +341,7 @@ ScriptedImporter:
       - name: _Glossiness
         float: 0.5
       - name: _GlossyReflections
-        float: 1
+        float: 0
       - name: _Metallic
         float: 0
       - name: _Mode

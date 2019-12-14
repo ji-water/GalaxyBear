@@ -14,14 +14,14 @@ public class GameOver : MonoBehaviour
     public Text ending;
     public Text S;
     public Text bestS;
+    AudioManage AM;
 
     //Audio
     GameObject AudioManager;
-
-    public GameObject enemy;
-    SpawnManage2 spawn_m;
-    public GameObject[] rockTrap = new GameObject[7];
-    public GameObject ItemManager;
+   
+    public rockManager[] rockTrap = new rockManager[7];
+    public AudioSource ItemManager;
+    AudioSource thisAudio;
 
     public GameObject health;
 
@@ -35,42 +35,29 @@ public class GameOver : MonoBehaviour
 
         //bgmplay
         AudioManager = GameObject.Find("AudioManager");
-        AudioManager.GetComponent<AudioManage>().bgmPlay();
+        AM = AudioManager.GetComponent<AudioManage>();
+        AM.bgmPlay();
 
-        gameObject.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().Main_skill;
-        gameObject.GetComponent<AudioSource>().loop = true;
-        gameObject.GetComponent<AudioSource>().volume = vol;
-        gameObject.GetComponent<AudioSource>().Play();
-
-        //enemy sound
-        spawn_m = enemy.GetComponent<SpawnManage2>();
-        //for (int i = 0; i < spawn_m.enemy.Length; i++)
-        //{
-        //    spawn_m.enemy[i].GetComponent<AudioSource>().volume = vol;
-        //}
-
-        //gun sound
-        this.GetComponent<AudioSource>().volume = vol;
+        thisAudio = GetComponent<AudioSource>();
+        thisAudio.clip = AM.Main_skill;
+        thisAudio.loop = true;
+        thisAudio.volume = vol;
+        thisAudio.Play();
 
         //rock sound
         for (int i = 0; i < 7; i++)
         {
-            rockTrap[i].GetComponent<rockManager>().explosion.GetComponent<AudioSource>().volume = vol;
-            rockTrap[i].GetComponent<rockManager>().rockObj.GetComponent<AudioSource>().volume = vol;
+            rockTrap[i].explosion.GetComponent<AudioSource>().volume = vol;
+            rockTrap[i].rockObj.GetComponent<AudioSource>().volume = vol;
         }
 
         //item sound
-        ItemManager.GetComponent<AudioSource>().volume = vol;
+        ItemManager.volume = vol;
 
     } 
 
-
-
-        
-
     public void GAMEOVER(bool gameover)
     {
-        Debug.Log("game over");
         if (gameover)
         {
             ending.text = "GAME OVER";
@@ -84,13 +71,13 @@ public class GameOver : MonoBehaviour
         PauseManager.SetActive(false);
         health.SetActive(false);
 
-        gameObject.GetComponent<AudioSource>().loop = false;
-        AudioManager.GetComponent<AudioSource>().clip = AudioManager.GetComponent<AudioManage>().Main_GMover;
-        AudioManager.GetComponent<AudioSource>().loop = false;
-        AudioManager.GetComponent<AudioSource>().Play();
+        thisAudio.loop = false;
+        AudioSource AM_Source = AudioManager.GetComponent<AudioSource>();
+        AM_Source.clip = AM.Main_GMover;
+        AM_Source.loop = false;
+        AM_Source.Play();
 
         double score = this.GetComponent<ScoreManager>().getScore();
-        Debug.Log("score: " + score);
 
         Time.timeScale = 0;
 
@@ -136,12 +123,12 @@ public class GameOver : MonoBehaviour
         while (!pressed)
         {
             //X button to go main
-            if (Input.GetKey(KeyCode.JoystickButton2) || Input.GetKey(KeyCode.X)){
+            if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.X)){
                 pressed = true;
                 SceneManager.LoadScene("MainScene");
             }
             //Y button
-            if (Input.GetKey(KeyCode.JoystickButton3) || Input.GetKey(KeyCode.Y))
+            if (Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.Y))
             {
                 pressed = true;
                 SceneManager.LoadScene("GameScene");
