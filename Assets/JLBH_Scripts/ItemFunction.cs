@@ -13,11 +13,14 @@ public class ItemFunction : MonoBehaviour
 
     public Image item_image;
 
-    GameObject ItemManager;
+    public GameObject ItemManager;
+
+    /*
     void Start()
     {
         ItemManager = GameObject.Find("ItemManager");    
     }
+    */
 
     private void OnTriggerEnter(Collider other)
     {

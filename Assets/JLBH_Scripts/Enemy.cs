@@ -22,23 +22,23 @@ public class Enemy : MonoBehaviour
     public HealthManager hm;
 
     public GameObject SpawnManager;
-    public GameObject GameManager;
+    public ScoreManager SM;
+    Animator ani;
 
-    void Start()
+    void Awake()
     {
         //position = (12) * Random.onUnitSphere;
-      //  player = GameObject.Find("player").GetComponent<Transform>();
-       // planet = GameObject.Find("Desert_Planet").GetComponent<Transform>();
-       // hm = GameObject.Find("GameManager").GetComponent<HealthManager>();
-        StartCoroutine("ChangeMovement");
+        //StartCoroutine("ChangeMovement");
         //nav = GetComponent<NavMeshAgent>();
+        ani = GetComponent<Animator>();
 
-        //SpawnManager = GameObject.Find("SpawnManager");
-        //GameManager = GameObject.Find("GameManager");
+        //effect vol
+        float vol = PlayerPrefs.GetInt("EFFvol", 5) * 0.2f;
+        GetComponent<AudioSource>().volume = vol;
     }
+
     private void OnEnable()
     {
-        Animator ani = GetComponent<Animator>();
         ani.SetInteger("animation", 15);
         removeFlag = false;
         exp.SetActive(false);
@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
     void Move()
     {
         Vector3 moveVelocity = Vector3.zero;
-
+        /*
         float distance = Vector3.Distance(transform.position, player.position);
 
         if(distance <= 1f)
@@ -73,18 +73,18 @@ public class Enemy : MonoBehaviour
             offenmemy();
             //Destroy(this.gameObject);
             return;
-        }
+        }*/
 
-        if (distance >= MinDist)
-        {
-            to = transform.position - planet.position;
-            axis = Vector3.Cross(to, player.position - planet.position);
+        //if (distance >= MinDist)
+        //{
+            to = transform.position;
+            axis = Vector3.Cross(to, player.position);
             forwardDir = Vector3.Cross(axis, to);
             transform.LookAt(transform.position + forwardDir, to);
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, player.position - transform.position, MoveSpeed);
             //transform.LookAt(player);
             //transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-        }
+        //}
         
         if (movementFlag==1)
         {
@@ -120,7 +120,7 @@ public class Enemy : MonoBehaviour
         while(true)
         {
             movementFlag = Random.Range(0, 6);
-            float time = Random.Range(2f, 5f);
+            int time = Random.Range(2, 5);
             yield return new WaitForSeconds(time);
         }
     }
@@ -134,15 +134,22 @@ public class Enemy : MonoBehaviour
             Animator ani = GetComponent<Animator>();
             ani.SetInteger("animation", 6);
 
-            //SpawnManager.GetComponent<SpawnManage>().CurrentEnemy--;
-            GameManager.GetComponent<ScoreManager>().scoreUP();
-
-            //Destroy(gameObject, 2f);
+            SM.scoreUP();
+            
             Invoke("offenmemy", 2f);
         }
     }
 
     public void offenmemy() {
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("playerHitZone"))
+        {
+            hm.Hit();
+            offenmemy();
+        }
     }
 }
