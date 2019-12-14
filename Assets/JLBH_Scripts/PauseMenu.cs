@@ -37,7 +37,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
 #else
-        if (Input.GetKey(KeyCode.Escape)) //ESC
+        if (Input.GetKeyDown(KeyCode.Escape)) //ESC
         {
             if (isPause)
             {
@@ -49,6 +49,7 @@ public class PauseMenu : MonoBehaviour
             {
                 isPause = true;
                 pauseCanvas.position = pausePos.position;
+                pauseCanvas.rotation = pausePos.rotation;
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0;
             }

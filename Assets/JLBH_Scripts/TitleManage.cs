@@ -55,7 +55,7 @@ public class TitleManage : MonoBehaviour
     {
         Vector3 tempV = new Vector3(0, 0.01f, 0);
         while (true) { 
-            if (title.position.y > 0.13f)
+            if (title.position.y > 0.2f)
             {
                 SceneManager.LoadScene("MainScene");
             }

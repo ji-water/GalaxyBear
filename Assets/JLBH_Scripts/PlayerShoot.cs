@@ -22,12 +22,12 @@ public class PlayerShoot : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             a++;
         }
 #else
-        if (Input.GetKeyUp(KeyCode.JoystickButton0)) //A
+        if (Input.GetKeyDown(KeyCode.JoystickButton0)) //A
         {
             a++;
         }

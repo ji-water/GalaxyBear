@@ -20,7 +20,7 @@ public class GravityBody : MonoBehaviour
         rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // Allow this body to be influenced by planet's gravity
         if (rigidbody != null && planet != null)

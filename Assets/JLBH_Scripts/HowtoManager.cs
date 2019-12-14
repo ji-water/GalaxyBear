@@ -9,6 +9,7 @@ public class HowtoManager : MonoBehaviour
     public GameObject canvas;
     private int count = 0;
     public GameObject[] how;
+    public GameObject buttons;
 
     GameObject SoundEffect;
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class HowtoManager : MonoBehaviour
             
             if (count % 8 == 1)
             {
+                buttons.SetActive(false);
                 how[0].SetActive(false);
                 how[1].SetActive(true);
             }
@@ -71,6 +73,7 @@ public class HowtoManager : MonoBehaviour
             else if (count % 8 == 0)
             {
                 canvas.SetActive(true);
+                buttons.SetActive(true);
                 how[7].SetActive(false);
                 how[0].SetActive(true);
                 howto.SetActive(false);

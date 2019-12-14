@@ -5,17 +5,17 @@ using UnityEngine;
 public class PlayerCollider : MonoBehaviour
 {
 
-    Collision thisCollision;
+    Collider thisCollision;
 
     private void Start()
     {
-        thisCollision = GetComponent<Collision>();
+        thisCollision = GetComponent<Collider>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player")) {
-            thisCollision.collider.isTrigger = true;
+            thisCollision.isTrigger = true;
         }
     }
 
@@ -23,7 +23,7 @@ public class PlayerCollider : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            thisCollision.collider.isTrigger = false;
+            thisCollision.isTrigger = false;
         }
     }
 

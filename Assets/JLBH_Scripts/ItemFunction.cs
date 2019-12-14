@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemFunction : MonoBehaviour
 {
@@ -10,17 +11,19 @@ public class ItemFunction : MonoBehaviour
     public HealthManager HM;
     public TimerManager TM;
 
-    GameObject ItemBox;
+    public Image item_image;
+
+    GameObject ItemManager;
     void Start()
     {
-        ItemBox = GameObject.Find("ItemBox");    
+        ItemManager = GameObject.Find("ItemManager");    
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") || other.CompareTag("MainCamera"))
         {
-            ItemBox.GetComponent<AudioSource>().Play();
+            ItemManager.GetComponent<AudioSource>().Play();
             if (itemType == ITEM.health)
             {
                 HM.Heal();

@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
 
     //}
 
-    void FixedUpdate()
+    void Update()
     {
         if (!removeFlag)
            Move();

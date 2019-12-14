@@ -6,6 +6,7 @@ public class ShotAction : MonoBehaviour {
     public GameObject explosion;
     float distance;
     Animator ani;
+    public Transform bulletPos;
     //public GameObject SpawnManager;
     //GameObject GameManager;
 
@@ -17,7 +18,8 @@ public class ShotAction : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		transform.position += transform.forward * Time.deltaTime * 5f;
+		transform.position += bulletPos.forward * Time.deltaTime * 5f;
+        transform.rotation = bulletPos.rotation;
 	
 	}
 

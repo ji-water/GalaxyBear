@@ -16,7 +16,7 @@ public class ButtonInteraction : MonoBehaviour
     {
         if (buttonGaze != 0)
         {
-            if (Input.GetButtonDown("Fire1") || Input.GetKey(KeyCode.JoystickButton0))
+            if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 SceneManager.GetComponent<MainMenu>().playEffect();
                 switch (buttonGaze)

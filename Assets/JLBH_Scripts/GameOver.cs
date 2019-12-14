@@ -22,7 +22,6 @@ public class GameOver : MonoBehaviour
     SpawnManage2 spawn_m;
     public GameObject[] rockTrap = new GameObject[7];
     public GameObject ItemManager;
-    public GameObject ItemBox;
 
     public GameObject health;
 
@@ -62,7 +61,6 @@ public class GameOver : MonoBehaviour
 
         //item sound
         ItemManager.GetComponent<AudioSource>().volume = vol;
-        ItemBox.GetComponent<AudioSource>().volume = vol;
 
     } 
 
